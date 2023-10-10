@@ -5,7 +5,7 @@
 ### Links
 **@github :** https://github.com/naikibro/a-hoe-tatou  
 **@LinkedIn :** www.linkedin.com/in/naiki-brotherson987
-
+***
 ## Synopsis
 This app made with Laravel intends to help Va'a team trainers to manage their workflow  
 The goal is to offer a solution to speed up organisation so that teams and trainers can focus less on organisation and more on winning races
@@ -15,6 +15,9 @@ This app has been ordered by the CNAM PF in the scope of the __NFE114__ course a
 
 ## Technical specifications and documentation
 Specifications have been described in the [specifications.md ](DOC/specifications.md) file  
-For more technical and precise aspects, please refer to the [documentation.md](DOC/documentation.md) file
+[graphical link](DOC/Cahier%20des%20charges.pdf)  
+
+For more technical and precise aspects, please refer to the [documentation.md](DOC/documentation.md) file  
+[graphical link](DOC/specifications%20fonctionelles.pdf)
 
 ### Big thanks to all contributors !
