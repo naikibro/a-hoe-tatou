@@ -10,6 +10,18 @@
 **@LinkedIn :** www.linkedin.com/in/naiki-brotherson987
 
 ***
+# Table of content  
+This file is the functional and technical documentation for the __A hoe tatout__ project  
+You will find here the Table of content of the differents parts of this project :  
+* [Concepts, Methods & Implemented Technologies](#concepts-methods--implemented-technologies)
+* [Mockups](#mockups)
+* [Roles definitions](#roles-definition)
+* [User stories and use case diagrams](#user-stories-and-use-case-diagrams)
+* [Database](#database)
+
+
+
+***
 ## Concepts, Methods & Implemented Technologies
 __Project Management__
 Project management will be done using Jira.
@@ -24,77 +36,119 @@ __Tools, Concepts, and Frameworks__
 * Composer: [Composer Download](https://getcomposer.org/download/)
 * MariaDB Server: [MariaDB Documentation](https://mariadb.org/documentation/)
 * SQL: [SQL on Wikipedia](https://en.wikipedia.org/wiki/SQL)
-# Mockups
-__Visiteur-landing-page__
+***  
+## Mockups  
+__Visiteur-landing-page__  
 ![](ressources/mockups/visiteur-landing-page.png)
 
 
-__Rameur-landing-page__
-![](ressources/mockups/rameur-landing-page.png)
+__Rower-landing-page__  
+![](ressources/mockups/rameur-landing-page.png)  
 
-__Rameur-landing-page-mobile__
+__Rower-landing-page-mobile__  
 ![](ressources/mockups/rameur-landing-page-mobile.png)  
 
-__User-loading-screen-animation__
-TO DO : Prepare loading screen animation made with Processing
+__User-loading-screen-animation__  
+TO DO : Prepare loading screen animation made with Processing  
 ***
+## Roles Definition  
+### Passive Users  
+* __Visitor__:
+  * Does not have an account.
+  * Is not logged in.
+  * Is always redirected to a registration + login page.
 
+* __Unregistered Rower__:
+  * Has an account.
+  * Is not registered in any team.
 
+### Active Users
+* __Registered Rower__:
+  * Has an account.
+  * Is registered in at least one crew and/or team.
 
+* __Trainer__:
+  * Has an account.
+  * Is registered in at least one crew and/or team.
+  * Is registered in the trainers' registry.
+
+> **CAUTION!**: A user can be both a Rower and a Trainer for multiple crews (roles are specific to crews).
+
+***
 # User stories and use case diagrams
 cf Jira board : https://naikibro.atlassian.net/jira/software/projects/HT/boards/2  
 User stories are dissecated into Jira cards
 You will find here all of the user stories of our app
 ### Visiteur
-__user-story-Visiteur-accueil__
 ![](ressources/diagrammes/user-story-visiteur-accueil.png)  
-__user-story:Visiteur - CreateAccount__
+__USV1 - LandingPage__    
+__USV2 - CreateAccount__  
+__USV3 - Login__  
 
 
-### Rameur
-__user-story:Rameur - Login__  
-__user-story:Rameur - ModifyAccount__  
-__user-story:Rameur - RemoveAccount__  
+
+### Rower
+![](ressources/diagrammes/user-stories-CRUD-Mes-infos.png)  
+__USR1 - Login__  
+__USR2 - ModifyAccount__  
+__USR3 - RemoveAccount__  
 
 
-### Equipe
-![](ressources/diagrammes/user-stories-Rameur-création-équipe.png)  
+### Teams
+![](ressources/diagrammes/user-stories-CRUD-équipe.png)  
   
-__user-story:Rameur - GetTeams__  
-__user-story:Rameur - CreateTeams__  
-__user-story:Rameur - ModifyTeams__  
-__user-story:Rameur - RemoveTeams__  
+__USRT1 - GetTeam__  
+__USRT2 - CreateTeam__  
+__USRT3 - ModifyTeam__  
+__USRT4 - LeaveTeam__  
+__USTT1 - RemoveTeam__  
 
-__user-story:Rameur - SendMessageToGroupChat__  
-__user-story:Rameur - SendMessageToGroupChat__  
-
-
-### Equipe Inscription
-__user-story:Rameur - addUserToTeam__  
-__user-story:Rameur - RemoveUserFromTeam__  
+__USRT5 - SendMessageToGroupChat__  
+__USRT6 - SendMessageToGroupChat__  
 
 
-### Practice
-__user-story:Trainer - GetPractice__  
-__user-story:Trainer - CreatePractice__  
-__user-story:Trainer - ModifyPractice__  
-__user-story:Trainer - RemovePractice__  
+### Teams Inscriptions
+__USST1 - addUserToTeam__  
+__USST2 - RemoveUserFromTeam__  
 
-__user-story:User - GetPractice__  
-__user-story:User - GetPerformance__  
 
-__user-story:User - EnrollForPractice__  
-__user-story:User - AbandonPractice__  
-__user-story:User - ChoosePosition__  
-__user-story:User - InviteRameur__  
+### Trainings  
+![](ressources/diagrammes/user-stories-CRUD-Entrainements.png)
+__USTTr1 - GetTraining__  
+__USTTr2 - CreateTraining__  
+__USTTr3 - ModifyTraining__  
+__USTTr4 - RemoveTraining__  
+
+__USRTr1 - GetTraining__  
+__USRTr2 - InviteRower__  
+ 
+__USRTr3 - EnrollForTraining__  
+__USRTr4 - AbandonTraining__  
+__USRTr5 - ChoosePosition__  
+
+__USSTr1 - GetPerformance__  
+
+### Activities  
+![](ressources/diagrammes/user-stories-CRUD-Activity.png)
+
+__user-story:Trainer - GetActivity__  
+__user-story:Trainer - SetActivity__  
+__user-story:Trainer - ModifyActivity__  
+__user-story:Trainer - RemoveActivity__  
+
+__user-story:Rower - GetActivity__  
+
+__user-story:Rower - EnrollForActivity__  
+__user-story:Rower - AbandonActivity__  
 
 ### Reminders
+![](ressources/diagrammes/user-stories-CRUD-Reminders.png)
 __user-story:Trainer - GetReminder__  
 __user-story:Trainer - SetReminder__  
 __user-story:Trainer - ModifyReminder__  
 __user-story:Trainer - RemoveReminder__  
 
-__user-story:Rameur - GetReminder__
+__user-story:Rower - GetReminder__
 
 ### Practice Team
 __user-story:Trainer - GetPracticeTeams__  
@@ -103,8 +157,8 @@ __user-story:Trainer - ModifyPracticeTeams__
 __user-story:Trainer - RemovePracticeTeams__  
 
 __user-story:Trainer - AlertBenchers__  
-__user-story:Trainer - AddRameur__  
-__user-story:Trainer - InviteRameur__  
+__user-story:Trainer - AddRower__  
+__user-story:Trainer - InviteRower__  
 
 __user-story:User - GetPracticeTeams__  
 
@@ -116,7 +170,7 @@ __user-story:Practice - AutoFillVaa__
 __user-story:Practice - EmergencyAutoFillVaa__  
 
 ***
-# Base de donnée
+# Database 
 __DBMS : MariaDB__
 __Query language : SQL__
 
