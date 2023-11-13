@@ -1,66 +1,89 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# A hoe tatou - Organize your Va'a team management
+![](../DOC/ressources/icon-240-dec.png)  
+**@author :** Vaanaiki BROTHERSON aka Naiki  
+**@date :** September 2023
+### Links
+**@github :** https://github.com/naikibro/a-hoe-tatou  
+**@LinkedIn :** www.linkedin.com/in/naiki-brotherson987
+***
+## Synopsis
+This app made with Laravel intends to help Va'a team trainers to manage their workflow    
+The goal is to offer a solution to speed up organisation so that teams and trainers can focus less on organisation and more on winning races
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+## Product owner
+This app has been ordered by the CNAM PF in the scope of the __NFE114__ course as an educational project
 
-## About Laravel
+## Technical specifications and documentation
+Specifications have been described in the [specifications.md ](../DOC/specifications.md) file  
+[graphical link](../DOC/Cahier%20des%20charges.pdf)  
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+For more technical and precise aspects, please refer to the [documentation.md](../DOC/documentation.md) file  
+[graphical link](../DOC/specifications%20fonctionelles.pdf)
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+### Big thanks to all contributors !
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+***
 
-## Learning Laravel
+# 1 - Setup environement
+Clone the project
+```zsh
+git clone git@github.com:naikibro/a-hoe-tatou.git
+```
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+Set all your environement variables
+```zsh
+cp .env .env.local
+```
+**/!\ Dont forget to specify all required values in the new .env.local file**
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+# 2 - Launch services
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 2000 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+You can use the fast build script or execute the steps below  
+Fast rebuild script
+```zsh
+/usr/bin/env zsh a_hoe_tatou/scripts/rebuild.sh -migrate 
+```
 
-## Laravel Sponsors
+## Launch docker services
+```zsh
+cd a_hoe_tatou/
+```
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+```zsh
+./vendor/bin/sail artisan cache:clear
+```
 
-### Premium Partners
+```zsh
+docker compose --env-file .env.local up -d
+```
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
-- **[Lendio](https://lendio.com)**
+Launch Laravel server 
+```zsh
+php artisan serve --host=127.0.0.1 --port=8000 > laravel.log 2>&1 &
+```
 
-## Contributing
+- To know how many laravel servers you have running :
+```zsh
+lsof -i :8000
+```
+- To down the laravel server :
+```zsh
+pkill -o php8.1
+```
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+# 3 - Load schemas and database
 
-## Code of Conduct
+Load the migrations :
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+```zsh
+./vendor/bin/sail artisan migrate
+```
 
-## Security Vulnerabilities
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
 
-## License
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+
+
+
+
+
