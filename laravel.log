@@ -1,5 +1,5 @@
-
-   INFO  Server running on [http://127.0.0.1:8000].  
-
-  Press Ctrl+C to stop the server
-
+PHP Warning:  require((unreachable)/Users/HINAIKI/Desktop/CODE/a hoe tatou/vendor/autoload.php): Failed to open stream: No such file or directory in artisan on line 18
+PHP Fatal error:  Uncaught Error: Failed opening required '(unreachable)/Users/HINAIKI/Desktop/CODE/a hoe tatou/vendor/autoload.php' (include_path='.:/usr/share/php') in artisan:18
+Stack trace:
+#0 {main}
+  thrown in artisan on line 18
