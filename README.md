@@ -1,5 +1,5 @@
 # A hoe tatou - Organize your Va'a team management
-![](../DOC/ressources/icon-240-dec.png)  
+![](public/img/ressources/icon-240-dec.png)  
 **@author :** Vaanaiki BROTHERSON aka Naiki  
 **@date :** September 2023
 ### Links
@@ -14,11 +14,6 @@ The goal is to offer a solution to speed up organisation so that teams and train
 This app has been ordered by the CNAM PF in the scope of the __NFE114__ course as an educational project
 
 ## Technical specifications and documentation
-Specifications have been described in the [specifications.md ](../DOC/specifications.md) file  
-[graphical link](../DOC/Cahier%20des%20charges.pdf)  
-
-For more technical and precise aspects, please refer to the [documentation.md](../DOC/documentation.md) file  
-[graphical link](../DOC/specifications%20fonctionelles.pdf)
 
 ### Big thanks to all contributors !
 
@@ -36,13 +31,13 @@ cp .env .env.local
 ```
 **/!\ Dont forget to specify all required values in the new .env.local file**
 
-# 2 - Launch services
-
-You can use the fast build script or execute the steps below  
-Fast rebuild script
-```zsh
-/usr/bin/env zsh a_hoe_tatou/scripts/rebuild.sh -migrate 
+### Create aliases
+```sh
+alias sail='[ -f sail ] && sh sail || sh vendor/bin/sail'
 ```
+
+
+# 2 - Launch services
 
 ## Launch docker services
 ```zsh
@@ -50,33 +45,20 @@ cd a_hoe_tatou/
 ```
 
 ```zsh
-./vendor/bin/sail artisan cache:clear
+sail artisan cache:clear
 ```
 
-```zsh
-docker compose --env-file .env.local up -d
-```
 
-Launch Laravel server 
+Launch Laravel server
 ```zsh
-php artisan serve --host=127.0.0.1 --port=8000 > laravel.log 2>&1 &
+sail up -d
 ```
-
-- To know how many laravel servers you have running :
-```zsh
-lsof -i :8000
-```
-- To down the laravel server :
-```zsh
-pkill -o php8.1
-```
-
 # 3 - Load schemas and database
 
 Load the migrations :
 
 ```zsh
-./vendor/bin/sail artisan migrate
+sail artisan migrate
 ```
 
 

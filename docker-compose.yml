@@ -105,8 +105,8 @@ services:
         ports:
             - '8001:80'
         environment:
-            - PMA_ARBITRARY=1
-            - PMA_HOST=my_sql
+            - PMA_ARBITRARY=0
+            - PMA_HOST=mysql
         networks:
             - sail
 networks:
