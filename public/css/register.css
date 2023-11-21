@@ -77,18 +77,26 @@ nav{
 }
 
 /* ----- A U T H ----- */
-#naked-auth-form{
-    color: whitesmoke;
+.application-logo {
+    width: 32px;
+    height: 32px;
 }
 
-#naked-auth-form *{
-    color: whitesmoke;
+form {
+    max-width: 400px; /* Set a max-width for better readability on larger screens */
+    width: 100%;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.8); /* Add a semi-transparent white background */
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add a subtle box shadow */
 }
 
-#naked-auth-form a{
-    color: #10bfd9;
+form h2{
+    font-size: large;
+    text-align: center;
+    font-weight: bold;
+    font-family: system-ui;
 }
-
 
 
 /* ----- F O O T E R ------ */

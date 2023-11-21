@@ -1,8 +1,28 @@
-<x-guest-layout>
-    <!-- Session Status -->
+<!DOCTYPE html>
+<html data-theme="dark" lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>A hoe tatou</title>
+    <link rel="icon" type="image/png" href="{{ asset('img/ressources/icon.png') }}">
+
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="{{asset('css/register.css')}}" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+<body class="bg-cover bg-center flex items-center min-h-screen" style="background-image: url('{{ asset('img/vaa.jpg') }}')">
+
+<nav>
+</nav>
+
+<a class="mt-4" href="{{ route('welcome') }}">
+    <img alt="icon" src="{{ asset('img/ressources/icon.png') }}" class="logoImg">
+</a>
+
+<!-- Session Status -->
     <x-auth-session-status class="mb-4" :status="session('status')" />
 
-    <form method="POST" action="{{ route('login') }}">
+    <form class="mt-4" method="POST" action="{{ route('login') }}">
         @csrf
 
         <!-- Email Address -->
@@ -44,4 +64,6 @@
             </x-primary-button>
         </div>
     </form>
-</x-guest-layout>
+
+</body>
+</html>

@@ -45,20 +45,20 @@ cd a_hoe_tatou/
 ```
 
 ```zsh
-sail artisan cache:clear
+vendor/bin/sail artisan cache:clear
 ```
 
 
 Launch Laravel server
 ```zsh
-sail up -d
+vendor/bin/sail up -d
 ```
 # 3 - Load schemas and database
 
 Load the migrations :
 
 ```zsh
-sail artisan migrate
+vendor/bin/sail artisan migrate
 ```
 
 
