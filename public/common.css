@@ -1,21 +1,139 @@
-footer{
+body{
+    background-color: #4a5568;
+    background-size: cover;
+    background-attachment: fixed; /* Keeps the image fixed while scrolling */
+    background-repeat: no-repeat;
+    background-position: center;
     width: 100%;
-    height: 180px;
-    background-color: rgba(0, 0, 0, .7);
-    color: white;
-    position: fixed;
-    bottom: 0;
+    height: 100vh; /* Makes the background cover the entire viewport height */
+    margin: 0; /* Removes default margin */
+    display: flex;
+    flex-direction: column;
 }
 
-footer h2{
+.logoImg{
+    width: 100%; /* Use 100% width to make it responsive */
+    max-width: 200px; /* Set a max-width to control the maximum size */
+    height: auto; /* Maintain the aspect ratio */
+}
+
+nav{
+    width: 100%;
+    height:42px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    background-color: black;
+}
+.wrapper{
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    margin-top: 30px;
+}
+
+#heroBox{
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 50%;
+}
+
+#heroBox a{
+    display: block;
+}
+
+#logbox{
+
+
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 100px 20px;
+    background-color: rgba(0,0,0,.7);
+    border-radius: 30px;
+    min-width: 30%;
+    max-width: 450px;
+}
+
+.b1{
+
+    background-color: black;
+    color: white;
+    padding: 15px;
+    border-radius: 20px;
+    transition: background-color .4s ease-in-out;
+}
+
+.b1
+
+.b1:hover{
+    background-color: #10bfd9;
+}
+
+/* ----- A U T H ----- */
+#naked-auth-form{
+    color: whitesmoke;
+}
+
+#naked-auth-form *{
+    color: whitesmoke;
+}
+
+#naked-auth-form a{
+    color: #10bfd9;
+}
+
+
+
+/* ----- F O O T E R ------ */
+footer {
+    width: 100%;
+    min-height: 180px;
+    margin-top: auto; /* Push the footer to the bottom */
+    position: relative;
+    padding: 10px 0;
+    background-color: rgba(0, 0, 0, .7);
+    color: white;
+}
+
+footer h2 {
     font-weight: bold;
 }
 
-footer .wrapper
-{
+footer .wrapper {
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
     align-items: center;
 }
 
+#footer-links-to-socials {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+footer a:hover {
+    color: #10bfd9;
+}
+
+/* Media Query for Responsive Design */
+@media only screen and (max-width: 768px) {
+    footer {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    footer .wrapper {
+        flex-direction: column;
+    }
+
+    #footer-links-to-socials {
+        margin-top: 10px;
+    }
+}
