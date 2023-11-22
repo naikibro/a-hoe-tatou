@@ -15,6 +15,12 @@ body{
     width: 100%; /* Use 100% width to make it responsive */
     max-width: 200px; /* Set a max-width to control the maximum size */
     height: auto; /* Maintain the aspect ratio */
+    transition: transform .3s, opacity .3s;
+}
+
+.logoImg:hover{
+    transform: scale(1.05);
+    opacity: .8;
 }
 
 nav{
@@ -26,20 +32,18 @@ nav{
     padding: 10px;
     background-color: black;
 }
-.wrapper{
+
+.wrapper {
     display: flex;
-    flex-direction: row-reverse;
-    justify-content: center;
+    flex-direction: row-reverse; /* Change to row */
+    justify-content: space-evenly;
     align-items: center;
     padding: 20px;
     margin-top: 30px;
 }
 
-#heroBox{
-    margin: auto;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+#heroBox {
+    margin-right: 20px; /* Adjust the margin as needed */
     max-width: 50%;
 }
 
@@ -47,18 +51,37 @@ nav{
     display: block;
 }
 
-#logbox{
 
-
+#logbox {
     height: 100%;
     display: flex;
+    flex-direction: column; /* Adjust to column for vertical alignment */
     justify-content: center;
     align-items: center;
-    padding: 100px 20px;
-    background-color: rgba(0,0,0,.7);
+    padding: 20px; /* Adjust the padding as needed */
+    background-color: rgba(0, 0, 0, .7);
     border-radius: 30px;
     min-width: 30%;
     max-width: 450px;
+}
+
+/* Media Query for Responsive Design */
+@media only screen and (max-width: 768px) {
+    .wrapper {
+        margin-top: 0;
+        margin-bottom: 10px;
+        flex-direction: column-reverse;
+        align-items: center; /* Stretch items vertically in column layout */
+    }
+
+    #heroBox {
+        margin-right: 0; /* Remove right margin on smaller screens */
+        max-width: 100%; /* Take up full width in column layout */
+    }
+
+    #logbox {
+        min-width: 100%; /* Take up full width in column layout */
+    }
 }
 
 .b1{
@@ -81,7 +104,11 @@ nav{
     color: whitesmoke;
 }
 
-#naked-auth-form *{
+#naked-auth-form label{
+    color: whitesmoke;
+}
+
+#naked-auth-form span{
     color: whitesmoke;
 }
 
@@ -92,10 +119,11 @@ nav{
 
 
 /* ----- F O O T E R ------ */
+
 footer {
     width: 100%;
     min-height: 180px;
-    margin-top: auto; /* Push the footer to the bottom */
+    margin-top: auto;
     position: relative;
     padding: 10px 0;
     background-color: rgba(0, 0, 0, .7);
@@ -127,6 +155,13 @@ footer a:hover {
     footer {
         flex-direction: column;
         text-align: center;
+        width: 100%;
+        min-height: 180px;
+        margin-top: auto;
+        position: relative;
+        padding: 10px 0;
+        background-color: rgba(0, 0, 0, .7);
+        color: white;
     }
 
     footer .wrapper {

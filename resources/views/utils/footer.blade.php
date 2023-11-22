@@ -2,9 +2,8 @@
     <div class="wrapper">
         <div>
             <h2>Legal Notice</h2>
-            <p><a href="#">About data protection</a></p>
+            <p><a href="{{ route('about-data-protection') }}">About data protection</a></p>
             <p><a href="https://github.com/naikibro">A website made by NKI</a></p>
-            <p><a href="#">Donations</a></p>
         </div>
 
         <div>
