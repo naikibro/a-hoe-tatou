@@ -28,6 +28,18 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
+Route::get('/login', function () {
+    return view('auth.login');
+})->middleware(['auth', 'verified'])->name('login');
+
+Route::get('/register', function () {
+    return view('auth.register');
+})->middleware(['auth', 'verified'])->name('register');
+
+Route::get('/about-data-protection', function () {
+    return view('auth.about');
+})->name('about-data-protection');
+
 
 
 require __DIR__.'/auth.php';
