@@ -1,0 +1,33 @@
+/* common.css */
+
+main {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.crudzone {
+    margin-top: 20px;
+}
+
+.crudtable {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+    color: whitesmoke;
+}
+
+.crudtable th, .crudtable td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+.crudtable th {
+    background-color: #4caf50;
+    color: white;
+}
+
+.crudtable tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
