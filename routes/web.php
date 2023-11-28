@@ -61,10 +61,29 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
+    // User specific
+    Route::middleware('role:user')->group(function (){
+        Route::get('/u-activities', [ActivityController::class, 'index'])->name('u-activities');
+        Route::get('/u-activity', [ActivityController::class, 'index'])->name('u-activity');
+
+    });
+
     // Admin specific
     Route::middleware('role:admin')->group(function () {
 
         Route::get('/send-mail', [MailController::class, 'sendHelloWorldEmail']);
+
+        Route::get('/activities', [ActivityController::class, 'index_admin'])->name('activities');
+        Route::get('/activity', [ActivityController::class, 'index_admin'])->name('activity');
+
+        Route::get('/new-activity', [ActivityController::class, 'create'])->name('new-activity');
+        Route::post('/new-activity', [ActivityController::class, 'processForm']);
+        Route::delete('/delete-activity/{id}', [ActivityController::class, 'destroy'])->name('delete-activity');
+
+        Route::get('/edit-activity/{id}', [ActivityController::class, 'edit'])->name('edit-activity');
+        Route::put('/edit-activity/{id}', [ActivityController::class, 'edit'])->name('edit-activity');
+        Route::put('/update-activity/{id}', [ActivityController::class, 'update'])->name('update-activity');
+
     });
 });
 
