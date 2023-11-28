@@ -15,7 +15,7 @@ class ActivityController extends Controller
     {
         $activityTypes = Activity::getPossibleEnumValues('activity', 'type');
 
-        return view('entities.new_activity', ['activityTypes' => $activityTypes]);
+        return view('entities.activity.new_activity', ['activityTypes' => $activityTypes]);
     }
 
     public function processForm(Request $request)
@@ -37,7 +37,7 @@ class ActivityController extends Controller
         $activities = Activity::all();
         $fillableAttributes = (new Activity())->getFillable();
 
-        return view('entities.activity', ['activities' => $activities, 'fillableAttributes' => $fillableAttributes]);
+        return view('entities.activity.activity', ['activities' => $activities, 'fillableAttributes' => $fillableAttributes]);
     }
 
     public function index_admin()
@@ -45,7 +45,7 @@ class ActivityController extends Controller
         $activities = Activity::all();
         $fillableAttributes = (new Activity())->getFillable();
 
-        return view('entities.activity', ['activities' => $activities, 'fillableAttributes' => $fillableAttributes]);
+        return view('entities.activity.activity', ['activities' => $activities, 'fillableAttributes' => $fillableAttributes]);
     }
 
     // ----- U P D A T E -----
@@ -54,7 +54,7 @@ class ActivityController extends Controller
         $activity = Activity::findOrFail($id);
         $activityTypes = Activity::getPossibleEnumValues('activity', 'type'); // Assuming you have a method to get enum values
 
-        return view('entities.edit_activity', compact('activity', 'activityTypes'));
+        return view('entities.activity.edit_activity', compact('activity', 'activityTypes'));
     }
 
     public function update(Request $request, $id)
