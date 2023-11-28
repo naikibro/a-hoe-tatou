@@ -17,11 +17,19 @@
                     </x-nav-link>
 
                     @auth
-                        @if(Auth::user()->role !== 'admin')
-                            <x-nav-link :href="route('activity')" :active="request()->routeIs('activity')">
+                        @if(auth()->user() && auth()->user()->getRole() === 'admin')
+                            <x-nav-link :href="route('activity')" :active="request()->routeIs('activity') || request()->routeIs('new-activity')">
                                 {{ __('Activities') }}
                             </x-nav-link>
                         @endif
+
+                            @if(auth()->user() && auth()->user()->getRole() === 'user')
+                                <x-nav-link :href="route('u-activity')" :active="request()->routeIs('activity') || request()->routeIs('new-activity')">
+                                    {{ __('Activities') }}
+                                </x-nav-link>
+                            @endif
+
+
                     @endauth
 
                 </div>
