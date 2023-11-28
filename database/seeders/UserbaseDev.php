@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Faker\Factory as Faker;
 
-class UserbaseDev extends Seeder
+class  UserbaseDev extends Seeder
 {
     /**
      * Run the database seeds.
@@ -20,7 +20,6 @@ class UserbaseDev extends Seeder
         // Create an admin user using environment variables
         $adminEmail = env('ADMIN_EMAIL', 'admin@example.com');
         $adminPassword = env('ADMIN_PASSWORD', 'password');
-
         DB::table('users')->insert([
             'name' => 'Admin User',
             'email' => $adminEmail,

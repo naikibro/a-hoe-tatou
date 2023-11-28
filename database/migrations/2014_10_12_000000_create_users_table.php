@@ -23,19 +23,6 @@ return new class extends Migration
             $table->rememberToken();
             $table->timestamps();
         });
-
-        // Create an admin user using environment variables
-        $adminEmail = env('ADMIN_EMAIL', 'admin@example.com');
-        $adminPassword = env('ADMIN_PASSWORD', 'password');
-
-        DB::table('users')->insert([
-            'name' => 'Admin User',
-            'email' => $adminEmail,
-            'password' => Hash::make($adminPassword),
-            'role' => 'admin',
-            'created_at' => now(),
-            'updated_at' => now(),
-        ]);
     }
 
     /**
