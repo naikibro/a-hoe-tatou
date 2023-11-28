@@ -4,8 +4,134 @@ main {
     max-width: 800px;
     margin: 0 auto;
     padding: 20px;
+    transition: color .3s;
 }
 
+/* ----- G L O B A L - A C T I O N S ----- */
+.globalLinks {
+    color: #e4e6ea;
+    background-color: #1f2937;
+    padding: 10px;
+    border-radius: 10px;
+    transition: background-color .3s ease-in-out, color .3s ease-in-out, box-shadow .3s ease-in-out;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.globalLinks:hover {
+    background-color: #13e0ff;
+    color: #1f2937;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* ----- A R I A N N E ----- */
+.arriane {
+    display: flex;
+    justify-content: left;
+    color: #10bfd9;
+}
+
+.arriane a:hover {
+    color: #13e0ff;
+}
+
+.arriane p {
+    margin: 0 10px 0 10px;
+}
+
+/* ----- N E W - F O R M ----- */
+.newForm {
+    margin-top: 30px;
+    background-color: #1f2937;
+    border-radius: 8px;
+    color: whitesmoke;
+    padding: 20px;
+}
+
+.newForm .titleBox {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.newForm h1 {
+    font-size: 40px;
+}
+
+.newForm input {
+    width: 80%;
+    padding: 10px;
+    margin-bottom: 10px;
+    background-color: rgba(63, 177, 196, 0.85);
+    color: whitesmoke;
+}
+
+.newForm button {
+    padding: 8px;
+    border-radius: 4px;
+    background-color: #10bfd9;
+    color: #1f2937;
+}
+
+.newForm textarea {
+    width: 80%;
+    background-color: rgba(63, 177, 196, 0.85);
+    color: whitesmoke;
+}
+
+.newForm select {
+    background-color: rgba(63, 177, 196, 0.85);
+    color: whitesmoke;
+}
+
+.newForm button:hover {
+    background-color: #13e0ff;
+}
+
+/* ----- E D I T - F O R M ----- */
+.editForm {
+    margin-top: 30px;
+    background-color: #1f2937;
+    border-radius: 8px;
+    color: whitesmoke;
+    padding: 20px;
+}
+
+.editForm h1 {
+    font-size: 40px;
+}
+
+.editForm input {
+    width: 80%;
+    padding: 10px;
+    margin-bottom: 10px;
+    background-color: rgba(63, 177, 196, 0.85);
+    color: whitesmoke;
+}
+
+.editForm button {
+    padding: 8px;
+    border-radius: 4px;
+    background-color: #10bfd9;
+    color: #1f2937;
+}
+
+.editForm textarea {
+    width: 80%;
+    background-color: rgba(63, 177, 196, 0.85);
+    color: whitesmoke;
+}
+
+.editForm select {
+    background-color: rgba(63, 177, 196, 0.85);
+    color: whitesmoke;
+}
+
+.editForm button:hover {
+    background-color: #13e0ff;
+}
+
+/* ----- C R U D Z O N E ----- */
 .crudzone {
     margin-top: 20px;
 }
@@ -15,19 +141,68 @@ main {
     border-collapse: collapse;
     margin-top: 10px;
     color: whitesmoke;
+    background-color: #374151;
 }
 
-.crudtable th, .crudtable td {
-    border: 1px solid #ddd;
+.crudtable th,
+.crudtable td {
+    border: 1px solid #e5e7eb;
+    border-collapse: collapse;
     padding: 8px;
     text-align: left;
 }
 
 .crudtable th {
-    background-color: #4caf50;
+    background-color: #1f2937;
     color: white;
 }
 
-.crudtable tr:nth-child(even) {
-    background-color: #f2f2f2;
+.modalLinks {
+    color: #10bfd9;
+    transition: color .1s ease-in-out;
+}
+
+.modalLinks:hover {
+    color: #13e0ff;
+}
+
+.action-buttons {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.action-buttons .crudIconDelete {
+    background-color: red;
+    transition: background-color .3s ease-in-out;
+}
+
+.action-buttons .crudIconDelete:hover {
+    background-color: #ff5454;
+}
+
+.action-buttons .crudIconEdit {
+    background-color: #ffd500;
+    transition: background-color .3s ease-in-out;
+}
+
+.action-buttons .crudIconEdit:hover {
+    background-color: #ffe35c;
+}
+
+/* ----- M O D A L ----- */
+.modal-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
+
+.modal-content {
+    width: 400px;
+    max-width: 100%;
+    background-color: #fff;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 4px;
+    padding: 20px;
+    text-align: center;
 }
