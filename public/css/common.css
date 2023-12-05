@@ -156,6 +156,41 @@ main {
     padding: 20px;
 }
 
+.getZone button {
+    padding: 8px;
+    border-radius: 4px;
+    background-color: #10bfd9;
+    color: #1f2937;
+}
+
+.getZone .active-content-data{
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.getZone .trigger-data{
+    width: 100%;
+    padding: 10px;
+    text-align: center;
+    transition: color .3s, background-color .3s;
+}
+
+.getZone .trigger-data:hover{
+    color: #10bfd9;
+    background-color: #2c3c51;
+}
+
+.getZone .trigger-data button{}
+
+.getZone .trigger-data button:hover{}
+
+.getZone .titleBox{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
 .getZone h1{
     font-size: 40px;
 }
@@ -172,6 +207,10 @@ main {
     background-color: #374151;
 }
 
+.getTable th{
+    background-color: #10bfd9;
+}
+
 .getTable tr:nth-child(odd){
     background-color: #4e5c73;
 }
@@ -182,6 +221,10 @@ main {
 
 .getTable h1{
     padding: 5px;
+}
+
+.getZone #detailsDiv{
+    text-align: center;
 }
 
 /* ----- C R U D Z O N E ----- */
@@ -224,6 +267,10 @@ main {
     justify-content: space-evenly;
 }
 
+.crudIcon{
+    padding: 3px;
+}
+
 .action-buttons .crudIconDelete {
     background-color: red;
     transition: background-color .3s ease-in-out;
@@ -234,13 +281,45 @@ main {
 }
 
 .action-buttons .crudIconEdit {
-    background-color: #ffd500;
+    background-color: #00a5de;
     transition: background-color .3s ease-in-out;
 }
 
 .action-buttons .crudIconEdit:hover {
-    background-color: #ffe35c;
+    background-color: #10bfd9;
 }
+
+.action-buttons .crudIconView {
+    background-color: #00a5de;
+    transition: background-color .3s ease-in-out;
+}
+
+.action-buttons .crudIconView:hover {
+    background-color: #10bfd9;
+}
+
+.table-responsive {
+    overflow-x: auto;
+}
+
+@media only screen and (max-width: 600px) {
+    .crudtable th,
+    .crudtable td {
+        font-size: 14px;
+        padding: 6px;
+    }
+
+    .crudtable th {
+        padding: 8px;
+    }
+
+    .action-buttons .crudIconDelete,
+    .action-buttons .crudIconEdit,
+    .action-buttons .crudIconView {
+        padding: 6px;
+    }
+}
+
 
 /* ----- M O D A L ----- */
 .modal-container {
