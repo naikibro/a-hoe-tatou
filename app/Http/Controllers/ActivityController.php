@@ -3,14 +3,13 @@
 namespace App\Http\Controllers;
 
 use App\Models\Activity;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
 class ActivityController extends Controller
 {
-
     // ----- C R E A T E -----
-
     public function create()
     {
         $activityTypes = Activity::getPossibleEnumValues('activity', 'type');
@@ -27,7 +26,7 @@ class ActivityController extends Controller
         $newActivity->duration = $request->input('duration');
         $newActivity->save();
 
-        return redirect()->route('new-activity');
+        return redirect()->route('activity');
     }
 
     // ----- R E A D -----
@@ -46,6 +45,18 @@ class ActivityController extends Controller
         $fillableAttributes = (new Activity())->getFillable();
 
         return view('entities.activity.activity', ['activities' => $activities, 'fillableAttributes' => $fillableAttributes]);
+    }
+
+    public function view($id)
+    {
+        $activity = Activity::findOrFail($id);
+
+        // TODO : get users linked to the $activity
+        $users = User::with($activity);
+
+        return view('entities.activity.get_activity', [
+            'activity' => $activity,
+        ]);
     }
 
     // ----- U P D A T E -----
