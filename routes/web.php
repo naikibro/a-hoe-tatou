@@ -3,6 +3,7 @@
 use App\Http\Controllers\ActivityController;
 use App\Http\Controllers\MailController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\TrainerController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -53,7 +54,9 @@ Route::middleware('auth')->group(function () {
     // Common Cruds
     Route::get('/activities', [ActivityController::class, 'index'])->name('activities');
     Route::get('/activity', [ActivityController::class, 'index'])->name('activity');
-
+    Route::get('/activity/{id}', [ActivityController::class, 'view'])->name('view-activity');
+    Route::get('/trainers', [TrainerController::class, 'index'])->name('trainers');
+    Route::get('/trainer', [TrainerController::class, 'index'])->name('trainer');
 
 
     // Profile CRUD
@@ -65,7 +68,6 @@ Route::middleware('auth')->group(function () {
     Route::middleware('role:user')->group(function (){
         Route::get('/u-activities', [ActivityController::class, 'index'])->name('u-activities');
         Route::get('/u-activity', [ActivityController::class, 'index'])->name('u-activity');
-
     });
 
     // Admin specific
@@ -83,6 +85,14 @@ Route::middleware('auth')->group(function () {
         Route::get('/edit-activity/{id}', [ActivityController::class, 'edit'])->name('edit-activity');
         Route::put('/edit-activity/{id}', [ActivityController::class, 'edit'])->name('edit-activity');
         Route::put('/update-activity/{id}', [ActivityController::class, 'update'])->name('update-activity');
+
+        Route::get('/new-trainer', [TrainerController::class, 'create'])->name('new-trainer');
+        Route::post('/new-trainer', [TrainerController::class, 'processForm'])->name('new-trainer');
+        Route::get('/edit-trainer/{id}', [TrainerController::class, 'edit'])->name('edit-trainer');
+        Route::put('/edit-trainer/{id}', [TrainerController::class, 'edit'])->name('edit-trainer');
+        Route::put('/update-trainer/{id}', [TrainerController::class, 'update'])->name('update-trainer');
+        Route::delete('/delete-trainer/{id}', [TrainerController::class, 'destroy'])->name('delete-trainer');
+        Route::put('/trainer/add-activity/{id}', [TrainerController::class, 'addActivity'])->name('trainer-add-activity');
 
     });
 });
