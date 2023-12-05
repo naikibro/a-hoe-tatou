@@ -107,7 +107,7 @@
             function showDetailsModal(activityId, title, description) {
 
                 document.getElementById('modalActivityTitle').innerText = title;
-                document.getElementById('modalActivityDescription').innerText = description;
+                document.getElementById('modalActivityDescription').innerText = JSON.parse(description);
                 document.getElementById('detailsModal').classList.remove('hidden');
             }
 
