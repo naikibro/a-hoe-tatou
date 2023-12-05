@@ -2,6 +2,8 @@
 
 namespace Database\Seeders;
 
+use App\Models\Trainer;
+use App\Models\User;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
@@ -31,14 +33,14 @@ class  UserbaseDev extends Seeder
 
         // Create 5 trainer users
         for ($i = 1; $i <= 5; $i++) {
-            DB::table('users')->insert([
+            $user = User::create([
                 'name' => $faker->name,
                 'email' => "trainer{$i}@example.com",
                 'password' => Hash::make('password'),
                 'role' => 'trainer',
-                'created_at' => now(),
-                'updated_at' => now(),
             ]);
+
+            Trainer::create(['user_id' => $user->id]);
         }
 
         // Create 14 default users
@@ -51,6 +53,42 @@ class  UserbaseDev extends Seeder
                 'created_at' => now(),
                 'updated_at' => now(),
             ]);
+        }
+
+        $activity_titles = [
+            'Réparation du Va\'a',
+            'Observation des étoiles',
+            'Balayer le rangement à gilets',
+            'Ahima\'a du coeur',
+            'Vente de gâteaux',
+            'Nettoyage du littoral',
+            'Replanter les coraux'
+        ];
+
+        $activity_descriptions = [
+            'Le va\'a a besoin d\'un petit coup de neuf !',
+            'Nous allons apprendre les noms et positions des étoiles du ciel Ma\'ohi',
+            'Tout est dans le titre',
+            'La Team organise un ahima\'a gratuit pour les quartiers du district',
+            'Nous allons vendre des gateaux pour financer notre voyage à Molokai',
+            'La plage a besoin de nous !',
+            'Les coraux ont besoin de nous !',
+        ];
+
+        $defaultDuration = '01:00:00';
+
+        $i = 0;
+        foreach ($activity_titles as $activity_title)
+        {
+            DB::table('activity')->insert([
+                'title' => $activity_title,
+                'description' => json_encode($activity_descriptions[$i]),
+                'type' => 'special',
+                'duration' => $defaultDuration,
+                'created_at' => now(),
+                'updated_at' => now(),
+            ]);
+            $i++;
         }
     }
 }

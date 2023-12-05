@@ -108,6 +108,15 @@ main {
     font-size: 40px;
 }
 
+.editForm .titleBox h1{
+    color: #10bfd9;
+}
+
+.editForm h2 {
+    font-size: 20px;
+    color: white;
+}
+
 .editForm input {
     width: 80%;
     padding: 10px;
@@ -136,6 +145,43 @@ main {
 
 .editForm button:hover {
     background-color: #13e0ff;
+}
+
+/* ----- G E T - Z O N E ----- */
+.getZone{
+    margin-top: 30px;
+    background-color: #1f2937;
+    border-radius: 8px;
+    color: whitesmoke;
+    padding: 20px;
+}
+
+.getZone h1{
+    font-size: 40px;
+}
+
+.getZone i{
+    color: grey;
+}
+
+.getTable{
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+    color: whitesmoke;
+    background-color: #374151;
+}
+
+.getTable tr:nth-child(odd){
+    background-color: #4e5c73;
+}
+
+.getTable td{
+    padding: 5px;
+}
+
+.getTable h1{
+    padding: 5px;
 }
 
 /* ----- C R U D Z O N E ----- */
@@ -212,4 +258,9 @@ main {
     border-radius: 4px;
     padding: 20px;
     text-align: center;
+}
+
+/* ----- A C T I V I T Y ----- */
+.activitiesSelect{
+
 }

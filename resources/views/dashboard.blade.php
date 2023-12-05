@@ -14,4 +14,13 @@
             </div>
         </div>
     </div>
+
+    <div class="container">
+        <div style="width: 600px; margin: auto;">
+            <canvas id="myChart"></canvas>
+        </div>
+    </div>
+
+    <script src="{{ mix('/js/app.js') }}"></script>
+
 </x-app-layout>

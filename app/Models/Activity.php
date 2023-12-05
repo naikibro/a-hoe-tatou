@@ -39,6 +39,23 @@ class Activity extends Model
         'duration' => 'datetime:H:i:s',
     ];
 
+
+    public function trainers(){
+        return $this->belongsToMany(Trainer::class, 'activity_trainer', 'activity_id', 'trainer_id');
+    }
+
+    // ----- C R U D S -----
+
+    public function assign_trainer($trainerId)
+    {
+        if (!$this->trainers()->where('trainer_id', $trainerId)->exists()) {
+            // Attach the trainer to the activity
+            $this->trainers()->attach($trainerId);
+        }
+    }
+
+    // ----- M I S C - F U N C T I O N S -----
+
     public static function getPossibleEnumValues($tableName, $columnName)
     {
         $type = DB::select("SHOW COLUMNS FROM $tableName WHERE Field = '$columnName'")[0]->Type;
