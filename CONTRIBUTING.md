@@ -2,7 +2,7 @@
 
 symfony entity == laravel model
 
-##Table of content  
+## Table of content  
 - [Create a Model-View-Controller](#1---create-a-model-view-controller)  
 - [Persist a Model to the database](#2---persist-model-to-database)  
 - [Create relations between Models](#3---create-relations-between-models)
