@@ -4,6 +4,7 @@
 
 namespace App\Models;
 
+use App\Http\Controllers\RowerController;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\DB;
 
@@ -42,6 +43,10 @@ class Activity extends Model
 
     public function trainers(){
         return $this->belongsToMany(Trainer::class, 'activity_trainer', 'activity_id', 'trainer_id');
+    }
+
+    public function rowers(){
+        return $this->belongsToMany(Rower::class, 'activity_rower', 'activity_id', 'rower_id');
     }
 
     // ----- C R U D S -----
