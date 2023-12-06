@@ -34,6 +34,11 @@ class User extends Authenticatable
         return $this->hasOne(Trainer::class, 'user_id', 'id');
     }
 
+    public function rower()
+    {
+        return $this->hasOne(Rower::class, 'user_id', 'id');
+    }
+
     public function getRole()
     {
         return $this->role;

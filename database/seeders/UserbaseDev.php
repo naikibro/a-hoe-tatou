@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Rower;
 use App\Models\Trainer;
 use App\Models\User;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
@@ -49,12 +50,15 @@ class  UserbaseDev extends Seeder
                 'name' => $faker->name,
                 'email' => "user{$i}@example.com",
                 'password' => Hash::make('password'),
-                'role' => 'user',
+                'role' => 'rower',
                 'created_at' => now(),
                 'updated_at' => now(),
             ]);
+
+            Rower::create(['user_id' => $i]);
         }
 
+        // Create 7 default activities
         $activity_titles = [
             'Réparation du Va\'a',
             'Observation des étoiles',
@@ -90,5 +94,20 @@ class  UserbaseDev extends Seeder
             ]);
             $i++;
         }
+
+        // Link trainers to activities
+        for($i = 1; $i < 4; $i++){
+            for($j = 1; $j < 4; $j++) {
+                DB::table('activity_trainer')->insert(['trainer_id' => $i, 'activity_id' => $j + $i]);
+            }
+        }
+
+        // Link rowers to activities
+        for($i = 1; $i < 4; $i++){
+            for($j = 1; $j < 4; $j++) {
+                DB::table('activity_rower')->insert(['rower_id' => $i, 'activity_id' => $j + $i + 1]);
+            }
+        }
+
     }
 }
