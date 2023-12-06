@@ -21,24 +21,13 @@
                             <x-nav-link :href="route('activity')" :active="str_contains(request()->route()->getName(), 'activit')">
                                 {{ __('Activities') }}
                             </x-nav-link>
-                        @endif
 
-                        @if(auth()->user() && auth()->user()->getRole() === 'user')
-                                <x-nav-link :href="route('u-activity')" :active="str_contains(request()->route()->getName(), 'activit')">
-                                {{ __('Activities') }}
-                            </x-nav-link>
-                        @endif
-
-
-                        @if(auth()->user() && auth()->user()->getRole() === 'admin')
-                                <x-nav-link :href="route('trainers')" :active="str_contains(request()->route()->getName(), 'trainer')">
+                            <x-nav-link :href="route('trainers')" :active="str_contains(request()->route()->getName(), 'trainer')">
                                 {{ __('Trainers') }}
                             </x-nav-link>
-                        @endif
 
-                        @if(auth()->user() && auth()->user()->getRole() === 'user')
-                                <x-nav-link :href="route('u-trainers')" :active="str_contains(request()->route()->getName(), 'trainer')">
-                                {{ __('Trainers') }}
+                            <x-nav-link :href="route('rowers')" :active="str_contains(request()->route()->getName(), 'rower')">
+                                {{ __('Rowers') }}
                             </x-nav-link>
                         @endif
 

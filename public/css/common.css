@@ -1,5 +1,10 @@
 /* common.css */
 
+html
+{
+    background-color: #111827;
+}
+
 main {
     max-width: 800px;
     margin: 0 auto;
@@ -238,6 +243,8 @@ main {
     margin-top: 10px;
     color: whitesmoke;
     background-color: #374151;
+    height: 400px;
+    overflow-y: scroll;
 }
 
 .crudtable th,
