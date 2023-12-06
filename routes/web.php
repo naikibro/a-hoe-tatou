@@ -3,6 +3,7 @@
 use App\Http\Controllers\ActivityController;
 use App\Http\Controllers\MailController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\RowerController;
 use App\Http\Controllers\TrainerController;
 use Illuminate\Support\Facades\Route;
 
@@ -57,6 +58,9 @@ Route::middleware('auth')->group(function () {
     Route::get('/activity/{id}', [ActivityController::class, 'view'])->name('view-activity');
     Route::get('/trainers', [TrainerController::class, 'index'])->name('trainers');
     Route::get('/trainer', [TrainerController::class, 'index'])->name('trainer');
+    Route::get('/rower', [RowerController::class, 'index'])->name('rower');
+    Route::get('/rowers', [RowerController::class, 'index'])->name('rowers');
+    Route::get('/rower/{id}', [RowerController::class, 'view'])->name('view-user');
 
 
     // Profile CRUD
@@ -93,6 +97,16 @@ Route::middleware('auth')->group(function () {
         Route::put('/update-trainer/{id}', [TrainerController::class, 'update'])->name('update-trainer');
         Route::delete('/delete-trainer/{id}', [TrainerController::class, 'destroy'])->name('delete-trainer');
         Route::put('/trainer/add-activity/{id}', [TrainerController::class, 'addActivity'])->name('trainer-add-activity');
+
+        Route::get('/new-user', [RowerController::class, 'create'])->name('new-user');
+        Route::post('/new-user', [RowerController::class, 'processForm'])->name('new-user');
+        Route::get('/edit-user/{id}', [RowerController::class, 'edit'])->name('edit-user');
+        Route::put('/edit-user/{id}', [RowerController::class, 'edit'])->name('edit-user');
+        Route::put('/update-user/{id}', [RowerController::class, 'update'])->name('update-user');
+        Route::delete('/delete-user/{id}', [RowerController::class, 'destroy'])->name('delete-user');
+        Route::put('/user/add-activity/{id}', [RowerController::class, 'addActivity'])->name('user-add-activity');
+
+
 
     });
 });
