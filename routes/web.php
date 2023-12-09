@@ -78,7 +78,8 @@ Route::middleware('auth')->group(function () {
     // Admin specific
     Route::middleware('role:admin')->group(function () {
 
-        Route::get('/send-mail', [MailController::class, 'sendHelloWorldEmail']);
+        Route::get('/send-mail', [MailController::class, 'welcomeMail']);
+        Route::get('/send-mail/{id}', [MailController::class, 'welcomeMail']);
 
         Route::get('/activities', [ActivityController::class, 'index_admin'])->name('activities');
         Route::get('/activity', [ActivityController::class, 'index_admin'])->name('activity');
