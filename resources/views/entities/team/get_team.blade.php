@@ -12,6 +12,7 @@
                 background-size: cover;
                 background-position: center;
                 background-repeat: no-repeat;
+                background-image: url("{{asset('img/team.jpg')}}");
                 height: 100vh; /* 100% of the viewport height */
             }
         </style>
@@ -20,18 +21,18 @@
 
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
-            {{ __('Rowers') }}
+            {{ __('Teams') }}
         </h2>
     </x-slot>
 
 
     <div class="getZone">
         <div class="titleBox">
-            <h1>{{ $rower->name }}</h1>
-            <a href="{{route('rowers')}}">
+            <h1>{{ $team->name }}</h1>
+            <a href="{{route('teams')}}">
                 <button type="button">
                     <i class="fas fa-arrow-left"></i>
-                    Back to Rowers
+                    Back to Teams
                 </button>
             </a>
         </div>
@@ -49,15 +50,15 @@
                 Activities
             </a>
 
-            <a class="trigger-data" onclick="showTeams()">
-                Teams
+            <a class="trigger-data" onclick="showRowers()">
+                Rowers
             </a>
         </div>
 
         <div id="detailsDiv">
-            <i>created at {{ $rower->created_at }}</i>
+            <i>created at {{ $team->created_at }}</i>
             <br>
-            <i>last modified on {{ $rower->updated_at }}</i>
+            <i>last modified on {{ $team->updated_at }}</i>
             <br>
         </div>
 
@@ -74,40 +75,38 @@
             </table>
         </div>
 
-        <div id="teamsDiv" hidden>
+        <div id="rowersDiv" hidden>
             <table class="getTable">
                 <tr>
                     <th colspan="2">Teams</th>
                 </tr>
-                @foreach($teams as $team)
+                @foreach($rowers as $rower)
                     <tr>
-                        <td>{{ $team->name }}</td>
+                        <td>{{ $rower->name }}</td>
                         <td>rower</td>
                     </tr>
                 @endforeach
             </table>
         </div>
-
-
     </div>
 
     <script>
         function showDetails() {
             document.getElementById('detailsDiv').hidden = false;
             document.getElementById('activitiesDiv').hidden = true;
-            document.getElementById('teamsDiv').hidden = true;
+            document.getElementById('rowersDiv').hidden = true;
         }
 
         function showActivities() {
             document.getElementById('detailsDiv').hidden = true;
             document.getElementById('activitiesDiv').hidden = false;
-            document.getElementById('teamsDiv').hidden = true;
+            document.getElementById('rowersDiv').hidden = true;
         }
 
-        function showTeams() {
+        function showRowers() {
             document.getElementById('detailsDiv').hidden = true;
             document.getElementById('activitiesDiv').hidden = true;
-            document.getElementById('teamsDiv').hidden = false;
+            document.getElementById('rowersDiv').hidden = false;
         }
     </script>
 

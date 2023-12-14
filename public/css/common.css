@@ -253,6 +253,7 @@ main {
     border-collapse: collapse;
     padding: 8px;
     text-align: left;
+
 }
 
 .crudtable th {
@@ -272,35 +273,24 @@ main {
 .action-buttons {
     display: flex;
     justify-content: space-evenly;
+    align-items: normal;
+    height: 100%;
 }
 
-.crudIcon{
-    padding: 3px;
+.action-buttons .crudIcon {
+    padding: 8px; /* Adjust the padding for larger screens */
 }
 
-.action-buttons .crudIconDelete {
-    background-color: red;
-    transition: background-color .3s ease-in-out;
-}
-
-.action-buttons .crudIconDelete:hover {
-    background-color: #ff5454;
-}
-
-.action-buttons .crudIconEdit {
-    background-color: #00a5de;
-    transition: background-color .3s ease-in-out;
-}
-
-.action-buttons .crudIconEdit:hover {
-    background-color: #10bfd9;
-}
-
+.action-buttons .crudIconDelete,
+.action-buttons .crudIconEdit,
 .action-buttons .crudIconView {
     background-color: #00a5de;
     transition: background-color .3s ease-in-out;
+    padding: 8px; /* Adjust the padding for larger screens */
 }
 
+.action-buttons .crudIconDelete:hover,
+.action-buttons .crudIconEdit:hover,
 .action-buttons .crudIconView:hover {
     background-color: #10bfd9;
 }
