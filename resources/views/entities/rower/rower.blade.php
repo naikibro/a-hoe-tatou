@@ -51,7 +51,7 @@
 
                             <td class="action-buttons">
 
-                                <form action="{{ route('view-user', ['id' => $rower->id]) }}" method="get">
+                                <form action="{{ route('view-rower', ['id' => $rower->id]) }}" method="get">
                                     @csrf
                                     @method('get')
                                     <button type="submit" class="crudIconView  crudIcon text-white font-bold rounded">
@@ -59,7 +59,7 @@
                                     </button>
                                 </form>
 
-                                <form action="{{ route('edit-user', ['id' => $rower->id]) }}" method="post">
+                                <form action="{{ route('edit-rower', ['id' => $rower->id]) }}" method="post">
                                     @csrf
                                     @method('PUT')
                                     <button type="submit" class="crudIconEdit crudIcon text-white font-bold rounded">
@@ -67,7 +67,7 @@
                                     </button>
                                 </form>
 
-                                <form action="{{ route('delete-user', $rower->id) }}" method="post" onsubmit="return confirm('Are you sure you want to delete this Rower ?')">
+                                <form action="{{ route('delete-rower', $rower->id) }}" method="post" onsubmit="return confirm('Are you sure you want to delete this Rower ?')">
                                     @csrf
                                     @method('delete')
                                     <button type="submit" class="crudIconDelete crudIcon text-white font-bold rounded">

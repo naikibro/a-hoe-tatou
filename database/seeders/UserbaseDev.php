@@ -18,11 +18,11 @@ class  UserbaseDev extends Seeder
      */
     public function run(): void
     {
-        $faker = Faker::create();
+        $faker = Faker::create('fr_FR');
 
         // Create an admin user using environment variables
         $adminEmail = env('ADMIN_EMAIL', 'admin@example.com');
-        $adminPassword = env('ADMIN_PASSWORD', 'password');
+        $adminPassword = 'password';
         DB::table('users')->insert([
             'name' => 'Admin User',
             'email' => $adminEmail,
@@ -113,7 +113,7 @@ class  UserbaseDev extends Seeder
         for ($i = 1; $i <= 5; $i++) {
             $team = Team::create([
                 'id' => $i,
-                'name' => $faker->word . ' Team',
+                'name' => $faker->colorName() . ' Team',
                 'description' => $faker->sentence,
             ]);
 

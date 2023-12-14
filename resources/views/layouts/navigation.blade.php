@@ -26,12 +26,14 @@
                                 {{ __('Trainers') }}
                             </x-nav-link>
 
-                            <x-nav-link :href="route('rowers')" :active="str_contains(request()->route()->getName(), 'rower')">
+                            <x-nav-link :href="route('rowers')" :active="str_contains(request()->route()->getName(), 'row')">
                                 {{ __('Rowers') }}
                             </x-nav-link>
+
+                            <x-nav-link :href="route('teams')" :active="str_contains(request()->route()->getName(), 'team')">
+                                {{ __('Teams') }}
+                            </x-nav-link>
                         @endif
-
-
                     @endauth
 
                 </div>
