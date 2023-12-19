@@ -18,6 +18,7 @@ jobs:
           port: 22
           user: naiki
           key:
+            -----BEGIN OPENSSH PRIVATE KEY-----
             b3BlbnNzaC1rZXktdjEAAAAABG5vbmUAAAAEbm9uZQAAAAAAAAABAAACFwAAAAdzc2gtcn
             NhAAAAAwEAAQAAAgEAwmhdtpqgKGFt8UJvYaHo7TdGOAZiIR22H/alTdzldrE4q9F5pqA5
             h/0qlgGMLLcLL+gAV3HZVVIlFxIzzc+P5+OcBtshIh7QyQC1m7OVAnTGT2jyX1lLL5u/uW
@@ -65,6 +66,7 @@ jobs:
             Z7iqX3o4nw9MG9RZoqQk74S3KinaB2mqgnU431GN9zZm3rj2zc/yw+jPiMXQJLpU0JE+MH
             rJs/OFz+pY78voA+AmukO3glZFwounRVp3eUyDVP5RD9G4k22+3E8gEVJwkV5CtvaWUmOl
             F0Rg9mG6MTkAAAASbmFpa2licm9AZ21haWwuY29tAQ==
+            -----END OPENSSH PRIVATE KEY-----
           pass: ninja
           connect_timeout: 30s
           first_ssh: |
