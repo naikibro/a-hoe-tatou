@@ -25,15 +25,11 @@ if [ -z "$(mysql -u $DB_USERNAME -p$DB_PASSWORD -e "SHOW DATABASES LIKE '$DB_DAT
     echo "Database $DB_DATABASE created!"
 fi
 
-# Check if the vendor directory exists, run composer install if not
-if [ ! -d "$PROJECT_PATH/vendor" ]; then
-    composer install --working-dir="$PROJECT_PATH"
-fi
 
-# Check if node_modules exists, run npm install if not
-if [ ! -d "$PROJECT_PATH/node_modules" ]; then
-    npm install --prefix "$PROJECT_PATH"
-fi
+composer install --working-dir="$PROJECT_PATH"
+npm install --prefix "$PROJECT_PATH"
+npm run dev
+
 
 # Stop services
 "$PROJECT_PATH"/vendor/bin/sail down
@@ -51,4 +47,3 @@ fi
 "$PROJECT_PATH"/vendor/bin/sail artisan db:seed --class=UserbaseDev
 
 echo "Laravel project setup complete!"
-npm run dev
