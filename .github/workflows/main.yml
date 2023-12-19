@@ -1,5 +1,12 @@
   name: ssh-scp-ssh-pipelines
   uses: cross-the-world/ssh-scp-ssh-pipelines@v1.1.4
+
+  on:
+    push:
+      branches: [ "master" ]
+    pull_request:
+      branches: [ "master" ]
+
   with:
     host: ahoetatou.com
     port: 22
