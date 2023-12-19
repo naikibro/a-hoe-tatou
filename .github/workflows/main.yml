@@ -1,0 +1,30 @@
+            - name: ssh-scp-ssh-pipelines
+  # You may pin to the exact commit or the version.
+  # uses: cross-the-world/ssh-scp-ssh-pipelines@78e864b4890087a58248ff39320406971ca88b89
+  uses: cross-the-world/ssh-scp-ssh-pipelines@v1.1.4
+  with: 
+    # ssh remote host
+    host: ahoetatou.com
+    # ssh remote port
+    port: # optional, default is 22
+    # ssh remote user
+    user: naiki
+    # content of ssh private key. ex raw content of ~/.ssh/id_rsa
+    key: # optional
+    # ssh remote password
+    pass: ninja
+    # connection timeout to remote host
+    connect_timeout: # optional, default is 30s
+    # execute pre-commands before scp
+    first_ssh: # optional
+    # scp from local to remote
+    scp: # optional
+    # execute post-commands after scp
+    last_ssh: |
+      cd ~/ahoetatou/a-hoe-tatou/
+      git remote update
+      git pull origin master
+      git checkout master
+      ./scripts/rebuild.sh
+
+          
