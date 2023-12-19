@@ -29,4 +29,5 @@ jobs:
             git remote update
             git fetch --all
             git reset --hard origin/master
+            chmod +x /scripts/rebuild.sh
             ./scripts/rebuild.sh
