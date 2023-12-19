@@ -27,6 +27,6 @@ jobs:
           last_ssh: |
             cd ~/ahoetatou/a-hoe-tatou/
             git remote update
-            git pull origin master
-            git checkout master
+            git fetch --all
+            git reset --hard origin/master
             ./scripts/rebuild.sh
