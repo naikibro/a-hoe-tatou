@@ -18,26 +18,27 @@ use Illuminate\Support\Facades\Route;
 */
 
 // ----- G U E S T -----
+Route::middleware('guest')->group(function () {
+    Route::get('/welcome', function () {
+        return view('welcome');
+    })->name('welcome');
 
-Route::get('/welcome', function () {
-    return view('welcome');
-})->name('welcome');
+    Route::get('', function () {
+        return view('welcome');
+    })->name('welcome');
 
-Route::get('', function () {
-    return view('welcome');
-})->name('welcome');
+    Route::get('/login', function () {
+        return view('auth.login');
+    })->name('login');
 
-Route::get('/login', function () {
-    return view('auth.login');
-})->middleware('guest')->name('login');
+    Route::get('/register', function () {
+        return view('auth.register');
+    })->name('register');
 
-Route::get('/register', function () {
-    return view('auth.register');
-})->middleware('guest')->name('register');
-
-Route::get('/about-data-protection', function () {
-    return view('auth.about');
-})->name('about-data-protection');
+    Route::get('/about-data-protection', function () {
+        return view('auth.about');
+    })->name('about-data-protection');
+});
 
 // ----- C O N N E C T E D - U S E R -----
 Route::middleware('auth')->group(function () {
