@@ -51,3 +51,4 @@ fi
 "$PROJECT_PATH"/vendor/bin/sail artisan db:seed --class=UserbaseDev
 
 echo "Laravel project setup complete!"
+npm run dev

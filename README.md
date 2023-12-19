@@ -70,6 +70,12 @@ Load the migrations :
 ```sh
 vendor/bin/sail artisan migrate
 ```
+  
+
+Load the Seeders :  
+````sh
+vendor/bin/sail artisan db:seed --class=UserbaseDev
+````
 
 
 

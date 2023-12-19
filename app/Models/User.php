@@ -34,9 +34,24 @@ class User extends Authenticatable
         return $this->hasOne(Trainer::class, 'user_id', 'id');
     }
 
+    public function rower()
+    {
+        return $this->hasOne(Rower::class, 'user_id', 'id');
+    }
+
     public function getRole()
     {
         return $this->role;
+    }
+
+    public function getName()
+    {
+        return $this->name;
+    }
+
+    public function getMail()
+    {
+        return $this->email;
     }
 
     public function isAdmin()

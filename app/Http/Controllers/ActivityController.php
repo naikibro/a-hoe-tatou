@@ -51,11 +51,16 @@ class ActivityController extends Controller
     {
         $activity = Activity::findOrFail($id);
 
-        // TODO : get users linked to the $activity
-        $users = User::with($activity);
+        $trainers = DB::table('activity_trainer')
+            ->where('activity_trainer.activity_id', "=", $id)
+            ->join('trainer', 'activity_trainer.trainer_id', '=', 'trainer.trainer_id')
+            ->join('users', 'trainer.user_id', '=', 'users.id')
+            ->select('trainer.trainer_id', 'trainer.user_id', 'users.name')
+            ->get();
 
         return view('entities.activity.get_activity', [
             'activity' => $activity,
+            'trainers' => $trainers,
         ]);
     }
 

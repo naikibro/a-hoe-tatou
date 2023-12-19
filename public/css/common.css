@@ -1,5 +1,10 @@
 /* common.css */
 
+html
+{
+    background-color: #111827;
+}
+
 main {
     max-width: 800px;
     margin: 0 auto;
@@ -156,6 +161,41 @@ main {
     padding: 20px;
 }
 
+.getZone button {
+    padding: 8px;
+    border-radius: 4px;
+    background-color: #10bfd9;
+    color: #1f2937;
+}
+
+.getZone .active-content-data{
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.getZone .trigger-data{
+    width: 100%;
+    padding: 10px;
+    text-align: center;
+    transition: color .3s, background-color .3s;
+}
+
+.getZone .trigger-data:hover{
+    color: #10bfd9;
+    background-color: #2c3c51;
+}
+
+.getZone .trigger-data button{}
+
+.getZone .trigger-data button:hover{}
+
+.getZone .titleBox{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
 .getZone h1{
     font-size: 40px;
 }
@@ -172,6 +212,10 @@ main {
     background-color: #374151;
 }
 
+.getTable th{
+    background-color: #10bfd9;
+}
+
 .getTable tr:nth-child(odd){
     background-color: #4e5c73;
 }
@@ -182,6 +226,10 @@ main {
 
 .getTable h1{
     padding: 5px;
+}
+
+.getZone #detailsDiv{
+    text-align: center;
 }
 
 /* ----- C R U D Z O N E ----- */
@@ -195,6 +243,8 @@ main {
     margin-top: 10px;
     color: whitesmoke;
     background-color: #374151;
+    height: 400px;
+    overflow-y: scroll;
 }
 
 .crudtable th,
@@ -203,6 +253,7 @@ main {
     border-collapse: collapse;
     padding: 8px;
     text-align: left;
+
 }
 
 .crudtable th {
@@ -222,25 +273,50 @@ main {
 .action-buttons {
     display: flex;
     justify-content: space-evenly;
+    align-items: normal;
+    height: 100%;
 }
 
-.action-buttons .crudIconDelete {
-    background-color: red;
+.action-buttons .crudIcon {
+    padding: 8px; /* Adjust the padding for larger screens */
+}
+
+.action-buttons .crudIconDelete,
+.action-buttons .crudIconEdit,
+.action-buttons .crudIconView {
+    background-color: #00a5de;
     transition: background-color .3s ease-in-out;
+    padding: 8px; /* Adjust the padding for larger screens */
 }
 
-.action-buttons .crudIconDelete:hover {
-    background-color: #ff5454;
+.action-buttons .crudIconDelete:hover,
+.action-buttons .crudIconEdit:hover,
+.action-buttons .crudIconView:hover {
+    background-color: #10bfd9;
 }
 
-.action-buttons .crudIconEdit {
-    background-color: #ffd500;
-    transition: background-color .3s ease-in-out;
+.table-responsive {
+    overflow-x: auto;
 }
 
-.action-buttons .crudIconEdit:hover {
-    background-color: #ffe35c;
+@media only screen and (max-width: 600px) {
+    .crudtable th,
+    .crudtable td {
+        font-size: 14px;
+        padding: 6px;
+    }
+
+    .crudtable th {
+        padding: 8px;
+    }
+
+    .action-buttons .crudIconDelete,
+    .action-buttons .crudIconEdit,
+    .action-buttons .crudIconView {
+        padding: 6px;
+    }
 }
+
 
 /* ----- M O D A L ----- */
 .modal-container {

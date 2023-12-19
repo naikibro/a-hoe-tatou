@@ -32,15 +32,28 @@
             <a href="{{route('activities')}}">
                 <button type="button">
                     <i class="fas fa-arrow-left"></i>
-                    Back to Activities
+                    Back to Trainers
                 </button>
             </a>
         </div>
 
         <br>
+        <hr>
+        <br>
 
-        <div>
-            <h3>Details</h3>
+        <div class="active-content-data">
+            <a class="trigger-data" onclick="showDetails()">
+                Show details
+            </a>
+            <a class="trigger-data" onclick="showTrainers()">
+                Participants
+            </a>
+        </div>
+
+        <hr>
+        <br>
+
+        <div id="detailsDiv">
             <i>created at {{ $activity->created_at }}</i>
             <br>
             <i>last modified on {{ $activity->updated_at }}</i>
@@ -49,23 +62,32 @@
             <p>{{ json_decode($activity->description) }}</p>
         </div>
 
-        <div>
-            <h3>Participants</h3>
-            <table>
+        <div id="trainersDiv" hidden>
+            <table class="getTable">
                 <tr>
-                    <th>1</th>
-                    <th>2</th>
-                    <th>3</th>
+                    <th>Participants</th>
                 </tr>
-                <tr>
-                    <td>a</td>
-                    <td>b</td>
-                    <td>c</td>
-                </tr>
+                @foreach($trainers as $trainer)
+                    <tr>
+                        <td>{{ $trainer->name }}</td>
+                    </tr>
+                @endforeach
             </table>
         </div>
 
     </div>
+
+    <script>
+        function showDetails() {
+            document.getElementById('detailsDiv').hidden = false;
+            document.getElementById('trainersDiv').hidden = true;
+        }
+
+        function showTrainers() {
+            document.getElementById('detailsDiv').hidden = true;
+            document.getElementById('trainersDiv').hidden = false;
+        }
+    </script>
 
 
 </x-app-layout>

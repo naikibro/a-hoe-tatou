@@ -67,18 +67,26 @@
 
                                 <td class="action-buttons">
 
+                                    <form action="{{ route('view-activity', ['id' => $activity->id]) }}" method="get">
+                                        @csrf
+                                        @method('get')
+                                        <button type="submit" class="crudIconView  crudIcon text-white font-bold rounded">
+                                            <i class="fas fa-eye"></i> View
+                                        </button>
+                                    </form>
+
                                     <form action="{{ route('edit-activity', ['id' => $activity->id]) }}" method="post">
                                         @csrf
                                         @method('PUT')
-                                        <button type="submit" class="crudIconEdit text-white font-bold py-2 px-4 rounded">
-                                            <i class="fas fa-edit"></i> Edit
+                                        <button type="submit" class="crudIconEdit crudIcon text-white font-bold rounded">
+                                            <i class="fas fa-edit"></i> edit
                                         </button>
                                     </form>
 
                                     <form action="{{ route('delete-activity', $activity->id) }}" method="post" onsubmit="return confirm('Are you sure you want to delete this activity?')">
                                         @csrf
                                         @method('delete')
-                                        <button type="submit" class="crudIconDelete text-white font-bold py-2 px-4 rounded">
+                                        <button type="submit" class="crudIconDelete crudIcon text-white font-bold rounded">
                                             <i class="fas fa-trash"></i> delete
                                         </button>
                                     </form>
