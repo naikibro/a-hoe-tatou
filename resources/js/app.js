@@ -1,4 +1,4 @@
-import './bootstrap';
+require('./bootstrap.js');
 import '@fortawesome/fontawesome-free/css/all.css';
 import './mychart.js';
 
