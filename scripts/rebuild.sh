@@ -24,12 +24,12 @@ git clone git@github.com:naikibro/a-hoe-tatou.git .
 cd /var/www/html
 composer install
 npm install
-npm run build
 
 # Launch Laravel Sail services
-alias sail='[ -f sail ] && sh sail || sh vendor/bin/sail'
-sail up -d
+vendor/bin/sail up -d
 
 # Load schemas and database
 vendor/bin/sail artisan migrate:fresh
 vendor/bin/sail artisan db:seed --class=UserbaseDev
+
+npm run build
