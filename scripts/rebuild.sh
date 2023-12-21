@@ -21,6 +21,7 @@ sudo rm -rf /var/www/html/.*
 git clone git@github.com:naikibro/a-hoe-tatou.git .
 
 # Build the project
+cd /var/www/html
 composer install
 npm install
 npm run build
