@@ -2,7 +2,9 @@ name: Deploy
 
 on:
   push:
-    branches: [ "master" ]
+    branches:
+      - "master"
+      - "choreDeployment"
   pull_request:
     branches: [ "master" ]
 
@@ -25,9 +27,7 @@ jobs:
           scp: |
             # optional scp commands
           last_ssh: |
-            cd ~/ahoetatou/a-hoe-tatou/
+            cd /var/www/html
             git remote update
-            git fetch --all
-            git reset --hard origin/master
             chmod +x scripts/rebuild.sh
             ./scripts/rebuild.sh
