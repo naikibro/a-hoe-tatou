@@ -1,0 +1,33 @@
+name: Deploy
+
+on:
+  push:
+    branches:
+      - "master"
+      - "choreDeployment"
+  pull_request:
+    branches: [ "master" ]
+
+jobs:
+  push:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: ssh-scp-ssh-pipelines
+        uses: cross-the-world/ssh-scp-ssh-pipelines@v1.1.4
+        with:
+          host: ahoetatou.com
+          port: 22
+          user: naiki
+          key: ${{ secrets.SERVER_KEY }}
+          pass: ninja
+          connect_timeout: 30s
+          first_ssh: |
+            # optional pre-commands
+          scp: |
+            # optional scp commands
+          last_ssh: |
+            cd /var/www/html
+            git remote update
+            chmod +x scripts/rebuild.sh
+            ./scripts/rebuild.sh
