@@ -21,9 +21,9 @@ sudo rm -rf /var/www/html/.*
 git clone git@github.com:naikibro/a-hoe-tatou.git .
 
 # Ensure correct file structure
-mv a-hoe-tatou/* .[^.]* ..
-mv a-hoe-tatou/.* .[^.]* ..
-rm -r a-hoe-tatou
+mv a-hoe-tatou/* .
+mv a-hoe-tatou/.* .
+rm -rf a-hoe-tatou
 
 # Build the project
 composer install
