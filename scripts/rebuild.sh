@@ -20,11 +20,6 @@ sudo rm -rf /var/www/html/.*
 # Clone the project
 git clone git@github.com:naikibro/a-hoe-tatou.git .
 
-# Ensure correct file structure
-mv a-hoe-tatou/* .
-mv a-hoe-tatou/.* .
-rm -rf a-hoe-tatou
-
 # Build the project
 composer install
 npm install
