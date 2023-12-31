@@ -152,6 +152,10 @@ main {
     background-color: #13e0ff;
 }
 
+.editIconDelete{
+    background-color:white;
+}
+
 /* ----- G E T - Z O N E ----- */
 .getZone{
     margin-top: 30px;

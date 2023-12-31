@@ -28,7 +28,7 @@
         @if(auth()->user() && ( auth()->user()->getRole() === 'admin' || auth()->user()->getRole() === 'trainer') )
 
             <div class="flex justify-end mb-4">
-                <a href="{{ route('new-trainer') }}" class="globalLinks text-white font-bold py-2 px-4 rounded">
+                <a href="{{ route('new-team') }}" class="globalLinks text-white font-bold py-2 px-4 rounded">
                     Create new team
                 </a>
             </div>
@@ -58,7 +58,7 @@
 
                             <td class="action-buttons">
 
-                                <form action="{{ route('view-team', ['id' => 6]) }}" method="get">
+                                <form action="{{ route('view-team', ['id' => $team->id]) }}" method="get">
                                     @csrf
                                     @method('get')
                                     <button type="submit" class="crudIconView  crudIcon text-white font-bold rounded">
@@ -66,7 +66,7 @@
                                     </button>
                                 </form>
 
-                                <form action="{{ route('edit-rower', ['id' => $team->id]) }}" method="post">
+                                <form action="{{ route('edit-team', ['id' => $team->id]) }}" method="post">
                                     @csrf
                                     @method('PUT')
                                     <button type="submit" class="crudIconEdit crudIcon text-white font-bold rounded">
@@ -74,7 +74,7 @@
                                     </button>
                                 </form>
 
-                                <form action="{{ route('delete-rower', $team->id) }}" method="post" onsubmit="return confirm('Are you sure you want to delete this Team ?')">
+                                <form action="{{ route('delete-team', $team->id) }}" method='post' onsubmit="return confirm('Are you sure you want to delete this Team ?')">
                                     @csrf
                                     @method('delete')
                                     <button type="submit" class="crudIconDelete crudIcon text-white font-bold rounded">

@@ -65,6 +65,7 @@ class ActivityController extends Controller
     }
 
     // ----- U P D A T E -----
+    
     public function edit($id)
     {
         $activity = Activity::findOrFail($id);
